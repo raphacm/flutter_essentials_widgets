@@ -5,9 +5,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Hello Flutter",
-        ),
+        title: _text(),
         centerTitle: true,
       ),
       body: _body(),
@@ -21,21 +19,26 @@ class Home extends StatelessWidget {
     );
   }
 
+  _text() {
+    return Text(
+      "Hello Flutter",
+      style: TextStyle(
+        color: Colors.blue,
+        fontSize: 40,
+      ),
+    );
+  }
+
   _body() {
     return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.yellow,
+      color: Colors.white,
       child: Column(
-        //or Row
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _button(),
-          _button(),
+          _text(),
+          _img(),
           _button(),
         ],
+        mainAxisAlignment: MainAxisAlignment.center,
       ),
     );
   }
