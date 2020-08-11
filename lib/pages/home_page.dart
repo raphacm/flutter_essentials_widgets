@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hello_udemy/pages/hello_page1.dart';
+import 'package:flutter_hello_udemy/pages/hello_page2.dart';
+import 'package:flutter_hello_udemy/pages/hello_page3.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -57,9 +59,9 @@ class Home extends StatelessWidget {
     );
   }
 
-  _button(context, String label) {
+  _button(BuildContext context, String label, Function onPressed) {
     return RaisedButton(
-      onPressed: () => _onClickOK(context),
+      onPressed: onPressed,
       child: Text(
         label,
         style: TextStyle(
@@ -71,28 +73,26 @@ class Home extends StatelessWidget {
     );
   }
 
-  void _onClickOK(context) => Navigator.push(context,
-          MaterialPageRoute(builder: (BuildContext context) {
-        return HelloPage1();
-      }));
-
   _buttons(context) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button(context, "ListView"),
-            _button(context, "Page 2"),
-            _button(context, "Page 3"),
+            _button(context, "ListView",
+                () => _onClickNavigator(context, HelloPage1())),
+            _button(context, "Page 2",
+                () => _onClickNavigator(context, HelloPage2())),
+            _button(context, "Page 3",
+                () => _onClickNavigator(context, HelloPage3())),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button(context, "Snack"),
-            _button(context, "Dialog"),
-            _button(context, "Toast"),
+            _button(context, "Snack", _onButtonPressed),
+            _button(context, "Dialog", _onButtonPressed),
+            _button(context, "Toast", _onButtonPressed),
           ],
         ),
       ],
@@ -117,4 +117,17 @@ class Home extends StatelessWidget {
       ),
     );
   }
+
+  void _onClickNavigator(context, Widget page) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) {
+          return page;
+        },
+      ),
+    );
+  }
+
+  _onButtonPressed() {}
 }
