@@ -24,8 +24,8 @@ class Home extends StatelessWidget {
   _body() {
     return Container(
       color: Colors.white,
-      child: SizedBox.expand(
-        child: _img(),
+      child: Center(
+        child: _button(),
       ),
     );
   }
@@ -36,4 +36,20 @@ class Home extends StatelessWidget {
       fit: BoxFit.cover,
     );
   }
+
+  _button() {
+    return RaisedButton(
+      onPressed: _onClickOK,
+      child: Text(
+        "OK",
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+      ),
+      color: Colors.blue,
+    );
+  }
+
+  void _onClickOK() => print("I was clicked");
 }
