@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -6,7 +5,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: _text(),
+        title: Text("Hello Flutter"),
         centerTitle: true,
       ),
       body: _body(),
@@ -21,20 +20,28 @@ class Home extends StatelessWidget {
   }
 
   _text() {
-    return Text(
-      "Hello Flutter",
-      style: TextStyle(
-        color: Colors.blue,
-        fontSize: 40,
+    return Container(
+      margin: EdgeInsets.only(
+        top: 20,
+        bottom: 20,
+      ),
+      child: Text(
+        "Hello Flutter",
+        style: TextStyle(
+          color: Colors.blue,
+          fontSize: 40,
+        ),
       ),
     );
   }
 
   _body() {
-    return Container(
-      color: Colors.white,
+    return SingleChildScrollView(
       child: Column(
         children: [
+          _text(),
+          _pageView(),
+          _buttons(),
           _text(),
           _pageView(),
           _buttons(),
@@ -42,6 +49,7 @@ class Home extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
       ),
     );
+    // );
   }
 
   _img(String imageName) {
