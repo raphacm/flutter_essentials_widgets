@@ -24,20 +24,16 @@ class Home extends StatelessWidget {
   _body() {
     return Container(
       color: Colors.white,
-      child: Center(
-        child: Text(
-          "Hello Flutter",
-          style: TextStyle(
-            color: Colors.purple,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-            fontStyle: FontStyle.italic,
-            decoration: TextDecoration.underline,
-            decorationColor: Colors.green,
-            decorationStyle: TextDecorationStyle.wavy,
-          ),
-        ),
+      child: SizedBox.expand(
+        child: _img(),
       ),
+    );
+  }
+
+  _img() {
+    return Image.asset(
+      "assets/images/dog1.png",
+      fit: BoxFit.cover,
     );
   }
 }
