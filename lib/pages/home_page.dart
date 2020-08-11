@@ -33,11 +33,7 @@ class Home extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Column(
-        children: [
-          _text(),
-          _img(),
-          _button(),
-        ],
+        children: [_text(), _img(), _buttons()],
         mainAxisAlignment: MainAxisAlignment.center,
       ),
     );
@@ -50,14 +46,14 @@ class Home extends StatelessWidget {
     );
   }
 
-  _button() {
+  _button(String label) {
     return RaisedButton(
       onPressed: _onClickOK,
       child: Text(
-        "OK",
+        label,
         style: TextStyle(
           color: Colors.white,
-          fontSize: 20,
+          fontSize: 14,
         ),
       ),
       color: Colors.blue,
@@ -65,4 +61,27 @@ class Home extends StatelessWidget {
   }
 
   void _onClickOK() => print("I was clicked");
+
+  _buttons() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _button("ListView"),
+            _button("Page 2"),
+            _button("Page 3"),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            _button("Snack"),
+            _button("Dialog"),
+            _button("Toast"),
+          ],
+        ),
+      ],
+    );
+  }
 }
