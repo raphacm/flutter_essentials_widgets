@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -33,15 +34,19 @@ class Home extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Column(
-        children: [_text(), _img(), _buttons()],
+        children: [
+          _text(),
+          _pageView(),
+          _buttons(),
+        ],
         mainAxisAlignment: MainAxisAlignment.center,
       ),
     );
   }
 
-  _img() {
+  _img(String imageName) {
     return Image.asset(
-      "assets/images/dog1.png",
+      "assets/images/$imageName.png",
       fit: BoxFit.cover,
     );
   }
@@ -82,6 +87,25 @@ class Home extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+
+  _pageView() {
+    return Container(
+      height: 300,
+      margin: EdgeInsets.only(top: 20, bottom: 20),
+      child: PageView(
+        reverse: false,
+        onPageChanged: (value) => print("value >> $value"),
+        scrollDirection: Axis.horizontal,
+        children: [
+          _img("dog1"),
+          _img("dog2"),
+          _img("dog3"),
+          _img("dog4"),
+          _img("dog5"),
+        ],
+      ),
     );
   }
 }
