@@ -7,8 +7,15 @@ class HelloPage2 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Hello Page 2"),
       ),
-      body: Center(
-        child: Text("Page 2"),
+      body: _body(context),
+    );
+  }
+
+  _body(context) {
+    return Center(
+      child: RaisedButton(
+        child: Text("Voltar"),
+        onPressed: () => Navigator.pop(context),
       ),
     );
   }
