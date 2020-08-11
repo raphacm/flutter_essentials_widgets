@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello_udemy/pages/hello_page1.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -8,14 +9,14 @@ class Home extends StatelessWidget {
         title: Text("Hello Flutter"),
         centerTitle: true,
       ),
-      body: _body(),
+      body: _body(context),
       drawer: Container(
         color: Colors.yellow,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: null,
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 
@@ -35,16 +36,13 @@ class Home extends StatelessWidget {
     );
   }
 
-  _body() {
-    return SingleChildScrollView(
+  _body(context) {
+    return Container(
       child: Column(
         children: [
           _text(),
           _pageView(),
-          _buttons(),
-          _text(),
-          _pageView(),
-          _buttons(),
+          _buttons(context),
         ],
         mainAxisAlignment: MainAxisAlignment.center,
       ),
@@ -59,9 +57,9 @@ class Home extends StatelessWidget {
     );
   }
 
-  _button(String label) {
+  _button(context, String label) {
     return RaisedButton(
-      onPressed: _onClickOK,
+      onPressed: () => _onClickOK(context),
       child: Text(
         label,
         style: TextStyle(
@@ -73,25 +71,28 @@ class Home extends StatelessWidget {
     );
   }
 
-  void _onClickOK() => print("I was clicked");
+  void _onClickOK(context) => Navigator.push(context,
+          MaterialPageRoute(builder: (BuildContext context) {
+        return HelloPage1();
+      }));
 
-  _buttons() {
+  _buttons(context) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button("ListView"),
-            _button("Page 2"),
-            _button("Page 3"),
+            _button(context, "ListView"),
+            _button(context, "Page 2"),
+            _button(context, "Page 3"),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button("Snack"),
-            _button("Dialog"),
-            _button("Toast"),
+            _button(context, "Snack"),
+            _button(context, "Dialog"),
+            _button(context, "Toast"),
           ],
         ),
       ],
