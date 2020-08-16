@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+class Dog {
+  final String name;
+  final String url;
+
+  Dog(this.name, this.url);
+}
+
 class HelloListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,20 +18,22 @@ class HelloListView extends StatelessWidget {
     );
   }
 
-  final dogs = [
-    "assets/images/dog1.png",
-    "assets/images/dog2.png",
-    "assets/images/dog3.png",
-    "assets/images/dog4.png",
-    "assets/images/dog5.png",
+  List<Dog> dogs = [
+    Dog("Jack Russel", "assets/images/dog1.png"),
+    Dog("Labrador", "assets/images/dog2.png"),
+    Dog("Pug", "assets/images/dog3.png"),
+    Dog("Rottweiler", "assets/images/dog4.png"),
+    Dog("Pastor", "assets/images/dog5.png"),
   ];
 
   _body(BuildContext context) {
     return ListView.builder(
       itemCount: dogs.length,
       itemBuilder: (context, index) {
+        Dog dog = dogs[index];
+
         return Image.asset(
-          dogs[index],
+          dog.url,
           fit: BoxFit.cover,
           width: 150,
         );
