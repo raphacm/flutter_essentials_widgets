@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello_udemy/pages/hello_listview.dart';
 import 'package:flutter_hello_udemy/pages/hello_page1.dart';
 import 'package:flutter_hello_udemy/pages/hello_page2.dart';
-import 'package:flutter_hello_udemy/pages/hello_page3.dart';
+import 'package:flutter_hello_udemy/pages/hello_gridview.dart';
 import 'package:flutter_hello_udemy/utils/nav.dart';
 import 'package:flutter_hello_udemy/widgets/myButton.dart';
 
@@ -85,10 +85,10 @@ class Home extends StatelessWidget {
               color: Colors.purple,
             ),
             MyButton(
-              "Page 3",
+              "Grid View",
               onPressed: () => _onClickNavigator(
                 context,
-                HelloPage3(),
+                HelloGridView(),
               ),
               color: Colors.green,
             ),
