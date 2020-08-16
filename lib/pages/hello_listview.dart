@@ -29,13 +29,25 @@ class HelloListView extends StatelessWidget {
   _body(BuildContext context) {
     return ListView.builder(
       itemCount: dogs.length,
+      itemExtent: 200,
       itemBuilder: (context, index) {
         Dog dog = dogs[index];
 
-        return Image.asset(
-          dog.url,
-          fit: BoxFit.cover,
-          width: 150,
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              dog.url,
+              fit: BoxFit.cover,
+            ),
+            Text(
+              dog.name,
+              style: TextStyle(
+                fontSize: 26,
+                color: Colors.white,
+              ),
+            )
+          ],
         );
       },
     );
