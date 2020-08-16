@@ -40,11 +40,22 @@ class HelloListView extends StatelessWidget {
               dog.url,
               fit: BoxFit.cover,
             ),
-            Text(
-              dog.name,
-              style: TextStyle(
-                fontSize: 26,
-                color: Colors.white,
+            Container(
+              alignment: Alignment.bottomLeft,
+              padding: EdgeInsets.all(10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.black45,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                padding: EdgeInsets.all(8),
+                child: Text(
+                  dog.name,
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             )
           ],
