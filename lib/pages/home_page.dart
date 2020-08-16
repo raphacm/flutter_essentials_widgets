@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello_udemy/pages/hello_page1.dart';
 import 'package:flutter_hello_udemy/pages/hello_page2.dart';
 import 'package:flutter_hello_udemy/pages/hello_page3.dart';
+import 'package:flutter_hello_udemy/widgets/myButton.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -59,40 +60,44 @@ class Home extends StatelessWidget {
     );
   }
 
-  _button(BuildContext context, String label, Function onPressed) {
-    return RaisedButton(
-      onPressed: onPressed,
-      child: Text(
-        label,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 14,
-        ),
-      ),
-      color: Colors.blue,
-    );
-  }
-
   _buttons(context) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button(context, "ListView",
-                () => _onClickNavigator(context, HelloPage1())),
-            _button(context, "Page 2",
-                () => _onClickNavigator(context, HelloPage2())),
-            _button(context, "Page 3",
-                () => _onClickNavigator(context, HelloPage3())),
+            MyButton(
+              "ListView",
+              onPressed: () => _onClickNavigator(
+                context,
+                HelloPage1(),
+              ),
+              color: Colors.red,
+            ),
+            MyButton(
+              "Page 2",
+              onPressed: () => _onClickNavigator(
+                context,
+                HelloPage2(),
+              ),
+              color: Colors.purple,
+            ),
+            MyButton(
+              "Page 3",
+              onPressed: () => _onClickNavigator(
+                context,
+                HelloPage3(),
+              ),
+              color: Colors.green,
+            ),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _button(context, "Snack", _onButtonPressed),
-            _button(context, "Dialog", _onButtonPressed),
-            _button(context, "Toast", _onButtonPressed),
+            MyButton("Snack", onPressed: _onButtonPressed),
+            MyButton("Dialog", onPressed: _onButtonPressed),
+            MyButton("Toast", onPressed: _onButtonPressed),
           ],
         ),
       ],

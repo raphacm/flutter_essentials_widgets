@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello_udemy/widgets/myButton.dart';
 
 class HelloPage3 extends StatelessWidget {
   @override
@@ -13,8 +14,8 @@ class HelloPage3 extends StatelessWidget {
 
   _body(context) {
     return Center(
-      child: RaisedButton(
-        child: Text("Voltar"),
+      child: MyButton(
+        "Voltar",
         onPressed: () => Navigator.pop(context),
       ),
     );
