@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello_udemy/pages/hello_page1.dart';
 import 'package:flutter_hello_udemy/pages/hello_page2.dart';
 import 'package:flutter_hello_udemy/pages/hello_page3.dart';
+import 'package:flutter_hello_udemy/utils/nav.dart';
 import 'package:flutter_hello_udemy/widgets/myButton.dart';
 
 class Home extends StatelessWidget {
@@ -123,15 +124,8 @@ class Home extends StatelessWidget {
     );
   }
 
-  void _onClickNavigator(context, Widget page) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (BuildContext context) {
-          return page;
-        },
-      ),
-    );
+  void _onClickNavigator(context, Widget page) async {
+    await push(context, page);
   }
 
   _onButtonPressed() {}
