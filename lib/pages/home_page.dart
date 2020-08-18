@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello_udemy/pages/drawer_list.dart';
 import 'package:flutter_hello_udemy/pages/hello_listview.dart';
 import 'package:flutter_hello_udemy/pages/hello_page2.dart';
 import 'package:flutter_hello_udemy/pages/hello_gridview.dart';
@@ -10,36 +11,24 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello Flutter"),
-        centerTitle: true,
-      ),
-      body: _body(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.print),
-        backgroundColor: Colors.orange,
-        onPressed: () {
-          _onClickFab(context);
-        },
-      ),
-      drawer: Drawer(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          color: Colors.blue,
-          alignment: Alignment.center,
-          child: Text(
-            "Hello Drawer",
-            style: TextStyle(
-              fontSize: 36,
-            ),
-          ),
+        appBar: AppBar(
+          title: Text("Hello Flutter"),
+          centerTitle: true,
         ),
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: null,
-      //   child: Icon(Icons.add),
-      // ),
-    );
+        body: _body(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.print),
+          backgroundColor: Colors.orange,
+          onPressed: () {
+            _onClickFab(context);
+          },
+        ),
+        drawer: DrawerList()
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: null,
+        //   child: Icon(Icons.add),
+        // ),
+        );
   }
 
   _onClickFab(context) {
