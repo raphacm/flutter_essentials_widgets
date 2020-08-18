@@ -22,8 +22,18 @@ class Home extends StatelessWidget {
           _onClickFab(context);
         },
       ),
-      drawer: Container(
-        color: Colors.yellow,
+      drawer: Drawer(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: Text(
+            "Hello Drawer",
+            style: TextStyle(
+              fontSize: 36,
+            ),
+          ),
+        ),
       ),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: null,
