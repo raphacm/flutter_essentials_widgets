@@ -22,8 +22,17 @@ class DrawerList extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
+          UserAccountsDrawerHeader(
+            accountName: Text("Pederneiras"),
+            accountEmail: Text("meuemail@email.com"),
+            arrowColor: Colors.red,
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "http://br.web.img2.acsta.net/r_640_360/newsv7/19/10/04/01/13/5346274.jpg"),
+            ),
+          ),
           SizedBox(
-            height: 40,
+            height: 20,
           ),
           Text(
             "Available pages",
