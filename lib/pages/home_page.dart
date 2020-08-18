@@ -15,6 +15,13 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: _body(),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.print),
+        backgroundColor: Colors.orange,
+        onPressed: () {
+          _onClickFab(context);
+        },
+      ),
       drawer: Container(
         color: Colors.yellow,
       ),
@@ -23,6 +30,17 @@ class Home extends StatelessWidget {
       //   child: Icon(Icons.add),
       // ),
     );
+  }
+
+  _onClickFab(context) {
+    Fluttertoast.showToast(
+        msg: "Printed",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
   }
 
   _text() {
@@ -49,7 +67,7 @@ class Home extends StatelessWidget {
           _pageView(),
           _buttons(),
         ],
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
       ),
     );
     // );
